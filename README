@@ -1,0 +1,146 @@
+/*
+ * Filename: README
+ * Author: Louis Lesmana
+ * Userid: cs30xds
+ * Date: 02/8/2014
+ *
+Description
+-----------
+A program that encrypt/ decrypt files or information using 
+certain keys and pass phrases. pass phrases are masked with keys 
+to create mask, that will  encrypt/decrypt the data provided. 
+Encrypt/decrypted will be written to stdout
+
+How to compile
+--------------
+To compile this program, simply navigate to the directory containing the
+source files for PA2 (which should include the Makefile) and type 'make'.
+
+How to run
+----------
+To run the program, type the executable name followed by the input
+arguments.  For example:
+
+	./mycrypt - for stdin input or ./mycrypt filename for file input
+
+Normal output
+-------------
+    Normal output is printed to stdout.  An example of normal 
+    output would be
+    the following, whereas stdout is redirected:
+
+[cs30xds@ieng9]:pa2:580$ ./mycrypt test > test4.encrypted
+Enter the passphrase [at least 8 chars]: Hello World
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 075242 0xdeadbeef
+Enter the rotation key [-63 <-> +63]: 19
+
+
+Abnormal output
+---------------
+    Abnormal output is printed to stderr.  This can occur if the 
+    inputs is not a
+    number, out of certain range, less than 8 characters, 
+    or out of bounds
+
+[cs30xds@ieng9]:pa2:532$ ./mycrypt - > test
+Enter the passphrase [at least 8 chars]: Hi
+
+        Passphrase must be at least 8 chars long; Try again.
+
+Enter the passphrase [at least 8 chars]: Hi There
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 14
+
+        Only 1 key entered. You must enter 2 keys.
+
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: ln4 abc
+
+        "ln4" is not an integer
+
+
+        "abc" is not an integer
+
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 14 999999999999999999999999
+
+        Converting "999999999999999999999999" base "0": Result too large
+
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 14 098
+
+        "098" is not an integer
+
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 14 0xfgh
+
+        "0xfgh" is not an integer
+
+Enter the two 32-bit keys [octal, decimal, or hex]
+        separated by a space or tab: 14 0xabcdef
+Enter the rotation key [-63 <-> +63]: -99
+
+        Rotation key must be within the range of [-63 <-> 63]
+
+Enter the rotation key [-63 <-> +63]: 64
+
+        Rotation key must be within the range of [-63 <-> 63]
+
+Enter the rotation key [-63 <-> +63]: ^D
+[cs30xds@ieng9]:pa2:532$
+
+This can also occur if there are too little arguments:
+
+[cs30xds@ieng9]:pa2:586$ ./mycrypt
+
+        Usage: ./mycrypt filename | -
+
+
+Testing
+-------
+This program was tested using the sample pa2test executable 
+that was provided. Both programs were run with the same input and 
+their outputs were redirected to two different files.  These outputs 
+were then compared using the command line tool 'diff'.  
+When there were no differences in output, it indicated that my 
+program was functioning properly.
+
+Furthermore, all of the other methods were individually tested, 
+using unit test methods, implementing various test cases, with edges
+along error possibilities making sure it does its job correctly 
+
+
+Questions
+---------
+
+What is the command to rename a file?
+mv
+
+What is the command to copy a file?
+cp
+
+What happens when you select text and then middle click in the vim 
+editor when in insert/input mode? replace it
+
+What is a .vimrc file, and how do you create/edit them?
+config file for vim, vim .vimrc in home directory
+
+What is the command to cut a full line of text to the clipboard in vim? 
+How do you paste it? 
+
+How do you search for a string in vim?
+/ or ? forward or backwards
+
+How do you turn on line numbers in vim?
+set nu
+
+How can you quickly (with a single Linux command) change directory 
+to a directory named fubar that is in your home (login) directory? 
+cd ~/fubar
+
+How do you change the permissions on a file? 
+Let's say want to give read permission to the group? 
+Specify the command to do this.
+
+chmod +r filename
