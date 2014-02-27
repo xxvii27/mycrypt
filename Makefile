@@ -131,7 +131,7 @@ runtestcheckRange: testcheckRange
 
 testmycrypt: test.h ${HEADERS} mycrypt.s testmycrypt.c rotate.s
 	@echo "Compiling testmycrypt.c"
-	gcc -g -o testmycrypt testmycrypt.c mycrypt.s rotate.s
+	gcc -g -o testmycrypt testmycrypt.c mycrypt.s rotate.s 
 	@echo "Done."
 
 runtestmycrypt: testmycrypt
