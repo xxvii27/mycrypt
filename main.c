@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
     //if no file name attached
     if(argc != 2 ){
         (void)fprintf(stderr, STR_USAGE, argv[0]);
-        return 0;
+        return EXIT_FAIL;
     }
     //get data from user
     getPassPhrase(passPhrase);
@@ -58,12 +58,12 @@ int main(int argc, char *argv[]){
     }
     else{
        // read and write from/to file
-       fPtr = fopen(argv[1], "r+");
+       fPtr = fopen(argv[1], "r");
        mycrypt(fPtr, mask, rotateValue);
        (void)fclose(fPtr);
     }
     
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

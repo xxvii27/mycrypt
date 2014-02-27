@@ -16,7 +16,8 @@
     LONG = 4                             ! Define size of long
 
 /* Function name: maskPassPhrase()
- * Function prototype: void maskPassPhrase( unsigned long keys[], char passPhrase[], unsigned long mask[] );
+ * Function prototype: void maskPassPhrase( unsigned long keys[], 
+   			char passPhrase[], unsigned long mask[] );
  * Description: xor keys to masks
  * Parameters: arg1,2: keys, phrases, mask
  * Side Effects: passpharase converted

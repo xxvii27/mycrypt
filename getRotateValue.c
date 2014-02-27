@@ -36,7 +36,7 @@ int getRotateValue( void ){
         errno = FALSE;// reset errno
         (void) fprintf(stderr, STR_ENTER_ROTATION, MIN_ROTATE, MAX_ROTATE);
         if(!fgets(rvalue, BUFSIZ, stdin))
-            exit(0);//exit imediately if EOF inputted
+            exit(EXIT_SUCCESS);//exit imediately if EOF inputted
         
         //check if there's any input
         if(strcmp(rvalue, STR_NEWLINE) == 0){

@@ -26,7 +26,9 @@
  * Error Conditions: as listed in called functions
  * Return Value: none
  * Registers Used;
- * 
+ * %l0-l7: manipualting bits and memory, counters
+ * %o0: return values
+ * %i0-3: input parameters
  */
 
 mycrypt:
@@ -117,12 +119,15 @@ loop_three:
 
 endloop_three:
 
+    sub         %i1, %l4, %i1                   ! reset pointer
+
     add         %fp, -BUFSIZE, %o0              ! pass buffer
     mov         CHAR, %o1                       ! sizeof char
-    mov         %l6, %o2                        ! pass length
+    mov         %l6, %o2                        ! pass length.
     set         stdOutput, %o3                  ! get address
     ld          [%o3], %o3                      ! dereference
     call        fwrite, 4                       ! write to stdout
+    nop
 
     add         %fp, -BUFSIZE, %o0              ! pass buffer
     mov         CHAR, %o1                       ! sizeof(char)

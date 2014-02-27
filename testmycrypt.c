@@ -21,18 +21,34 @@
  *  encrypt/decrypt data from input
  *
  *
- * Precondition: buffer, mask, rotatevalue valid
+ * Precondition: buffer, mask, rotatevalue valid, make and run
+ *               this test must be done separately to avoid
+ *               unwanted buffers.
  *
+ *  This unit test is done one data at a time, manipulate
+ *  mask, adn rotate value manually
  */
+
+FILE *stdOutput = stdout; //stdout define for assembly
 
 void
 testmycrypt()
 {
+    //inputs
+    unsigned long mask[MAX_KEY];
+    int rotateValue;
+
+    (void)fprintf(stderr, "Testing mycrypt\n");
     
-    printf( "Testing mycrypt()\n" );
+    //Testing, succeeds if data same after 2 testrun calls(dec/enc)
     
+    rotateValue = 30;
+    mask[0] = 1094795595;
+    mask[1] = 1111638684;
+    mycrypt(stdin, mask, rotateValue);
     
-    printf( "Finished running tests on mycrypt()\n" );
+    (void)fprintf(stderr, "Finished testing mycrypt\n");
+    
 }
 
 int

@@ -10,6 +10,8 @@
 
 #define PASS_PHRASE_SIZE 8
 #define WHITE_SPACE_CHARS " \t\n"
+#define EXIT_SUCCESS 0
+#define EXIT_FAIL 1
 
 #define BASE 0 
 #define TRUE 1

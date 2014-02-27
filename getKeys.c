@@ -42,7 +42,7 @@ void getKeys(unsigned long keys[]){
         //prompt user and obtain phrase
         (void) fprintf(stderr, STR_ENTER_KEYS);
         if(!fgets(pretokens, BUFSIZ, stdin))
-           exit(0);//exit imediately if EOF inputted
+           exit(EXIT_SUCCESS);//exit imediately if EOF inputted
         
         //tokenizing
         tokens = strtok_r(pretokens, WHITE_SPACE_CHARS, &lasts);

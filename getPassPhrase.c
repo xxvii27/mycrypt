@@ -30,7 +30,7 @@ void getPassPhrase(char passphrase[]){
       //prompt user and obtain phrase
       (void) fprintf(stderr, STR_ENTER_PASSPHRASE, PASS_PHRASE_SIZE);
       if(!fgets(passphrase, BUFSIZ, stdin))
-         exit(0);//exit imediately if EOF inputted
+         exit(EXIT_SUCCESS);//exit imediately if EOF inputted
       
       //eleminate newline
       passphrase[strlen(passphrase)-1] = '\0';
